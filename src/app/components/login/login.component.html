@@ -1,5 +1,5 @@
 <fieldset>
-  <form>
+  <form [formGroup]="form" (ngSubmit)="login()" >
   <div class="field">
     <p class="control has-icons-left has-icons-right">
       <input class="input" type="text" placeholder="Usuário" formControlName="user" name="user">

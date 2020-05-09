@@ -1,16 +1,20 @@
+import { UserLogin } from './../../models/UserLogin';
+import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { constants } from 'os';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
+  url = 'https://security-core-app.herokuapp.com';
+  //url = 'http://localhost:8080';
+
   constructor(private httpClient: HttpClient) { }
 
-  login(user: User): Observable<User> {
-    return this.httpClient.post<User>( + '/participant', participant);
+  login(userLogin: UserLogin): Observable<any> {
+    return this.httpClient.post<any>(this.url + '/user/login', userLogin);
   }
 
 }

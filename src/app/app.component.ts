@@ -1,3 +1,4 @@
+import { SharedService } from './services/shared.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'SGE';
+  usuarioLogado: boolean;
+
+  constructor(private sharedService: SharedService) {
+    this.usuarioLogado = sharedService.isLoggedIn();
+  }
 }
