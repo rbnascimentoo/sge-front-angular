@@ -10,9 +10,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { Validators, FormBuilder, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedService } from './services/shared.service';
-import { ListUserComponent } from './components/user/list-user/list-user.component';
 
 @NgModule({
   declarations: [
@@ -21,8 +20,7 @@ import { ListUserComponent } from './components/user/list-user/list-user.compone
     HeaderComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent,
-    ListUserComponent
+    MenuComponent
   ],
   imports: [
     BrowserModule,
