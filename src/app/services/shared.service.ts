@@ -1,5 +1,4 @@
-import { Injectable } from '@angular/core';
-import { EventEmitter } from 'events';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +6,8 @@ import { EventEmitter } from 'events';
 export class SharedService {
 
   public static instance: SharedService = null;
-
   token: string;
+  showTemplate = new EventEmitter<boolean>();
 
   constructor() {
     return SharedService.instance = SharedService.instance || this;

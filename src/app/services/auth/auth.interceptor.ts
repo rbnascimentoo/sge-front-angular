@@ -20,8 +20,8 @@ export class AuthInteceptor implements HttpInterceptor {
     if (this.shared.isLoggedIn()) {
       authRequest = req.clone({
         setHeaders: {
-          'Authorization' : this.shared.token,
-          'contentType' : 'application/json'
+          'Authorization' : localStorage.getItem('token'),
+          'Content-Type' : 'application/json'
         }
       });
       return next.handle(authRequest);

@@ -9,9 +9,10 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { NavComponent } from './components/nav/nav.component';
+import { MenuComponent } from './components/menu/menu.component';
 import { Validators, FormBuilder, FormGroup, ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedService } from './services/shared.service';
+import { ListUserComponent } from './components/user/list-user/list-user.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SharedService } from './services/shared.service';
     HeaderComponent,
     LoginComponent,
     HomeComponent,
-    NavComponent
+    MenuComponent,
+    ListUserComponent
   ],
   imports: [
     BrowserModule,

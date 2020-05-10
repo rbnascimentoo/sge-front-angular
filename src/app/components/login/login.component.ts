@@ -12,8 +12,10 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  message: string;
   form: FormGroup;
   userLogin = new UserLogin('', '');
+  valide: boolean;
 
   constructor(private fb: FormBuilder, private router: Router, private loginService: LoginService, private sharedService: SharedService) {
     this.form = this.fb.group({
@@ -25,20 +27,47 @@ export class LoginComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    const val = this.form.value;
 
-    if (val.user && val.password) {
-      this.userLogin = new UserLogin(val.user, val.password);
-      console.log(this.userLogin);
+    this.valide = true;
+
+    const valueForm = this.form.value;
+
+    if (valueForm.user && valueForm.password) {
+      this.userLogin = new UserLogin(valueForm.user, valueForm.password);
       this.loginService.login(this.userLogin).subscribe(response => {
-        //localStorage.setItem('token', response.data);
         this.sharedService.token = response.data;
+        this.sharedService.showTemplate.emit(true);
+        localStorage.setItem('token', response.data);
         this.router.navigate(['home']);
       }, err => {
-
+        this.sharedService.token = null;
+        localStorage.setItem('token', null);
+        this.sharedService.showTemplate.emit(false);
+        this.message = 'Usuário não existente.';
 
       });
     }
+  }
+
+  cancel() {
+    this.userLogin = new UserLogin('', '');
+    this.valide = true;
+    this.message = '';
+    location.reload();
+  }
+
+  userErrorClass() {
+    if (this.message || (!this.form.value.user && this.valide)) {
+      return 'is-danger';
+    }
+    return '';
+  }
+
+  passwordErrorClass() {
+    if (this.message || (!this.form.value.password && this.valide)) {
+      return 'is-danger';
+    }
+    return '';
   }
 
 }

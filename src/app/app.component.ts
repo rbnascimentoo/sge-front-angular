@@ -1,5 +1,5 @@
 import { SharedService } from './services/shared.service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,10 +7,21 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'SGE';
-  usuarioLogado: boolean;
 
-  constructor(private sharedService: SharedService) {
-    this.usuarioLogado = sharedService.isLoggedIn();
+  public sharedService: SharedService;
+  showTemplate: boolean;
+
+  constructor() {
+    this.sharedService = SharedService.getInstance();
+    //this.showTemplate = false;
   }
+
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngOnInit() {
+    this.sharedService.showTemplate.subscribe(show =>
+      this.showTemplate = show
+    );
+  }
+
+
 }

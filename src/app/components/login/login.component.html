@@ -1,19 +1,35 @@
+<div>
+  <p class="title is-1 is-spaced">SGE</p>
+</div>
 <fieldset>
-  <form [formGroup]="form" (ngSubmit)="login()" >
+  <form [formGroup]="form" >
+    <div class="help is-danger" role="alert" *ngIf="message" >
+      <p><strong>{{message}}</strong></p>
+    </div>
   <div class="field">
     <p class="control has-icons-left has-icons-right">
-      <input class="input" type="text" placeholder="Usuário" formControlName="user" name="user">
+      <input
+          class="input"
+          [ngClass]="userErrorClass()"
+          type="text"
+          placeholder="Usuário"
+          formControlName="user"
+          name="user">
       <span class="icon is-small is-left">
-        <i class="fas fa-envelope"></i>
-      </span>
-      <span class="icon is-small is-right">
-        <i class="fas fa-check"></i>
+        <i class="fas fa-user"></i>
       </span>
     </p>
   </div>
   <div class="field">
     <p class="control has-icons-left">
-      <input class="input" type="password" placeholder="Senha" formControlName="password" name="password">
+      <input
+            class="input"
+            [ngClass]="passwordErrorClass()"
+            type="password"
+            placeholder="Senha"
+            formControlName="password"
+            name="password"
+            >
       <span class="icon is-small is-left">
         <i class="fas fa-lock"></i>
       </span>
@@ -21,10 +37,15 @@
   </div>
   <div class="field">
     <p class="control">
-      <button class="button is-success" (click)="login()" >
-        Login
+      <button type="reset" class="button is-danger" (click)="cancel()" style="margin-right: 5px;" >
+        Cancelar
+      </button>
+
+      <button type="submit" class="button is-success" (click)="login()" >
+        Entrar
       </button>
     </p>
+    <p>Ainda não é cadastradx? <a>Clique aqui!</a></p>
   </div>
 </form>
 </fieldset>
