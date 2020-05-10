@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
@@ -22,6 +23,12 @@ export class SharedService {
 
   isLoggedIn(): boolean {
     return this.token != null;
+  }
+
+  logOut() {
+    this.showTemplate.emit(false);
+    this.token = null;
+    localStorage.clear();
   }
 
 }

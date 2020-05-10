@@ -6,21 +6,24 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   public sharedService: SharedService;
   showTemplate: boolean;
 
   constructor() {
     this.sharedService = SharedService.getInstance();
-    //this.showTemplate = false;
   }
 
-  // tslint:disable-next-line: use-lifecycle-interface
+
   ngOnInit() {
     this.sharedService.showTemplate.subscribe(show =>
       this.showTemplate = show
     );
+  }
+
+  isLoggeIn() {
+    return this.sharedService.isLoggedIn();
   }
 
 

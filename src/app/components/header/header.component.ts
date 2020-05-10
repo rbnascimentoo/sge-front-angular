@@ -1,4 +1,6 @@
+import { SharedService } from './../../services/shared.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public sharedService: SharedService;
+
+  constructor(private router: Router) {
+    this.sharedService = SharedService.getInstance();
+  }
 
   ngOnInit() {
+  }
+
+  logOut() {
+    this.sharedService.logOut();
+    this.router.navigate(['login']);
   }
 
 }

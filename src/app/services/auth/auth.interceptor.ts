@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SharedService } from './../shared.service';
 import { HttpInterceptor, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
@@ -10,7 +11,7 @@ export class AuthInteceptor implements HttpInterceptor {
 
   shared: SharedService;
 
-  constructor() {
+  constructor(private router: Router) {
     this.shared = SharedService.getInstance();
   }
 

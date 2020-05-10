@@ -1,5 +1,5 @@
-<app-header hidden="!showTemplate" ></app-header>
-<app-menu hidden="!showTemplate"></app-menu>
+<app-header *ngIf="isLoggeIn()"></app-header>
+<app-menu *ngIf="isLoggeIn()"></app-menu>
 <section class="section is-medium">
     <div class="container">
         <router-outlet></router-outlet>
