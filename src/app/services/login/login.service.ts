@@ -8,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  //url = 'https://security-core-app.herokuapp.com';
-  url = 'http://localhost:8080';
+  url = 'https://security-core-app.herokuapp.com';
+  //url = 'http://localhost:8080';
 
   constructor(private httpClient: HttpClient) { }
 
