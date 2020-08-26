@@ -22,13 +22,20 @@ export class SharedService {
   }
 
   isLoggedIn(): boolean {
-    return this.token != null;
+    return this.token != null || localStorage.getItem('token') != null;
   }
 
   logOut() {
     this.showTemplate.emit(false);
+    localStorage.setItem('token', null);
     this.token = null;
     localStorage.clear();
+  }
+
+  setToken(token: string) {
+    this.token = token;
+    this.showTemplate.emit(true);
+    localStorage.setItem('token', token);
   }
 
 }

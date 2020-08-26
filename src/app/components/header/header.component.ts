@@ -9,13 +9,16 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  public sharedService: SharedService;
+  // public sharedService: SharedService;
 
-  constructor(private router: Router) {
-    this.sharedService = SharedService.getInstance();
+  constructor(private router: Router, private sharedService: SharedService) {
+    // this.sharedService = SharedService.getInstance();
   }
 
   ngOnInit() {
+    if (!this.sharedService.isLoggedIn()) {
+      this.sharedService.logOut();
+    }
   }
 
   logOut() {

@@ -25,7 +25,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.reset();
+    if (!this.sharedService.isLoggedIn()) {
+      this.reset();
+    }
   }
 
   login() {
@@ -37,10 +39,15 @@ export class LoginComponent implements OnInit {
     if (valueForm.user && valueForm.password) {
       this.userLogin = new UserLogin(valueForm.user, valueForm.password);
       this.loginService.login(this.userLogin).subscribe(response => {
-        this.sharedService.token = response.data;
-        this.sharedService.showTemplate.emit(true);
-        localStorage.setItem('token', response.data);
-        this.router.navigate(['home']);
+
+        if (response !== undefined || response.data !== undefined || response.data != null) {
+          this.sharedService.setToken(response.data);
+          localStorage.setItem('token', response.data);
+          this.router.navigate(['home']);
+        } else {
+          this.cancel();
+        }
+
       }, err => {
         this.reset();
         this.message = 'Usuário não existente.';
@@ -59,7 +66,7 @@ export class LoginComponent implements OnInit {
     this.validate = true;
     this.message = '';
     this.sharedService.token = null;
-    localStorage.setItem('token', null);
+    localStorage.clear();
     this.sharedService.showTemplate.emit(false);
   }
 

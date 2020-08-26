@@ -12,6 +12,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedService } from './services/shared.service';
+import { UserListComponent } from './components/users/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SharedService } from './services/shared.service';
     HeaderComponent,
     LoginComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -37,6 +39,7 @@ import { SharedService } from './services/shared.service';
       multi: true
     }
   ],
+  exports: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

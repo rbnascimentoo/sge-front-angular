@@ -8,18 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  public sharedService: SharedService;
-  showTemplate: boolean;
+  constructor(private sharedService: SharedService) {
 
-  constructor() {
-    this.sharedService = SharedService.getInstance();
   }
 
-
   ngOnInit() {
-    this.sharedService.showTemplate.subscribe(show =>
-      this.showTemplate = show
-    );
   }
 
   isLoggeIn() {

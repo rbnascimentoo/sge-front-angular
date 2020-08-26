@@ -16,17 +16,21 @@ export class AuthInteceptor implements HttpInterceptor {
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let authRequest: any;
 
     if (this.shared.isLoggedIn()) {
-      authRequest = req.clone({
+      req = req.clone({
         setHeaders: {
-          'Authorization' : this.shared.token,
+          'Authorization' : 'Bearer' + localStorage.getItem('token'),
           'Content-Type' : 'application/json'
         }
       });
-      return next.handle(authRequest);
+      return next.handle(req);
     } else {
+
+      req.clone({
+          url: '/login'
+      });
+
       return next.handle(req);
     }
   }
