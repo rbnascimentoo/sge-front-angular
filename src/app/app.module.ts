@@ -1,3 +1,4 @@
+import { UserAddComponent } from './components/users/user-add/user-add.component';
 import { AuthInteceptor } from './services/auth/auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,7 @@ import { UserListComponent } from './components/users/user-list/user-list.compon
     LoginComponent,
     HomeComponent,
     MenuComponent,
+    UserAddComponent,
     UserListComponent
   ],
   imports: [
