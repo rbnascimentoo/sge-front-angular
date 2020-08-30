@@ -1,25 +1,25 @@
-<div [hidden]="showDataTable()">
+<div [hidden]="!showDataTable()">
   <table class="table is-fullwidth">
     <thead>
       <tr>
         <th></th>
-        <th>Name</th>
+        <th>Nome</th>
         <th>Usuário</th>
         <th style="width: 20%;">Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of userList; let i = index" >
+      <tr *ngFor="let user of userList[0]; let i = index" >
         <td>{{ i+1 }}</td>
         <td>{{user.name}}</td>
         <td>{{user.login}}</td>
         <td style="width: 20%;">
 
-          <button class="button is-link is-outlined is-warning" (click)="editUser()" style="margin-right: 10px;">
+          <button class="button is-link is-outlined is-warning" (click)="edit(user.id)" style="margin-right: 10px;">
               Editar
           </button>
 
-          <button class="button is-link is-outlined is-danger" (click)="deleteUser()" >
+          <button class="button is-link is-outlined is-danger" (click)="delete(user.id)" >
               Deletar
           </button>
         </td>
@@ -28,12 +28,12 @@
   </table>
 </div>
 
-<div [hidden]="!showDataTable()">
-  Não há participantes.
+<div [hidden]="showDataTable()">
+  Não há usuários.
 </div>
 
 <br>
 
 <div class="buttons" style="float: right; margin-right: 15px;">
-  <button class="button is-link is-outlined" (click)="newUser()">Novo Usuário</button>
+  <button class="button is-link is-outlined" (click)="new()">Novo Usuário</button>
 </div>

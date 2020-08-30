@@ -1,5 +1,6 @@
 import { Response } from './../../models/responses/Response';
 import { User } from './../../models/User';
+import { Constant } from './../../models/constants/Constants';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -9,29 +10,26 @@ import { HttpClient } from '@angular/common/http';
 })
 export class UserService {
 
-  url = 'https://security-core-app.herokuapp.com';
-  // url = 'http://localhost:8080';
-
   constructor(private httpClient: HttpClient) { }
 
   findAll(): Observable<Response<User>> {
-    return this.httpClient.get<Response<User>>(this.url + '/user');
+    return this.httpClient.get<Response<User>>(Constant.URL_BASE_LOCAL + '/user');
   }
 
-  // saveUser(participant: Participant): Observable<Participant> {
-  //   return this.http.post<Participant>(this.url + '/participant', participant);
-  // }
+  save(user: User): Observable<Response<User>> {
+    return this.httpClient.post<Response<User>>(Constant.URL_BASE_LOCAL + '/user', user);
+  }
 
-  // deleteUser(_id: string): Observable<Participant> {
-  //   return this.http.delete<Participant>(this.url + '/participant/' + _id);
-  // }
+  delete(id: string): Observable<any> {
+    return this.httpClient.delete<any>(Constant.URL_BASE_LOCAL + '/user/' + id);
+  }
 
-  // findUser(id: string): Observable<Participant> {
-  //   return this.http.get<Participant>(this.url + '/participant/' + id);
-  // }
+  findById(id: string): Observable<Response<User>> {
+    return this.httpClient.get<Response<User>>(Constant.URL_BASE_LOCAL + '/user/' + id);
+  }
 
-  // editUser(participant: Participant): Observable<Participant> {
-  //   return this.http.put<Participant>(this.url + '/participant/' + participant._id, participant);
-  // }
+  edit(user: User): Observable<Response<User>> {
+    return this.httpClient.put<Response<User>>(Constant.URL_BASE_LOCAL + '/user/' + user.id, user);
+  }
 
 }

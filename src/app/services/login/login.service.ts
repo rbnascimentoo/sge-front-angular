@@ -1,4 +1,5 @@
 import { UserLogin } from './../../models/UserLogin';
+import { Constant } from './../../models/constants/Constants';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -8,13 +9,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  // url = 'https://security-core-app.herokuapp.com';
-  url = 'http://localhost:8080';
-
   constructor(private httpClient: HttpClient) { }
 
   login(userLogin: UserLogin): Observable<any> {
-    return this.httpClient.post<any>(this.url + '/user/login', userLogin);
+    return this.httpClient.post<any>(Constant.URL_BASE_LOCAL + '/user/login', userLogin);
   }
 
 }

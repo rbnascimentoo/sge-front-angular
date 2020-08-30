@@ -1,0 +1,40 @@
+<div>
+  <form method="POST">
+      <fieldset name="usuario">
+        <legend><b> Usuário </b></legend>
+        <div class="field">
+          <label class="label">Nome</label>
+          <div class="control">
+            <input id="name" class="input" type="text" placeholder="Nome" required [(ngModel)]="user.name" name="name">
+          </div>
+
+        </div>
+        <div class="field">
+          <label class="label">Login</label>
+          <div class="control">
+            <input id="nickname" class="input" type="text" placeholder="Login" required [(ngModel)]="user.login" name="login">
+
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Senha</label>
+          <div class="control">
+            <input id="password" class="input" type="password" placeholder="Senha" required [(ngModel)]="user.password" name="password">
+
+          </div>
+        </div>
+      </fieldset>
+      <br>
+      <div class="field is-grouped is-grouped-right">
+          <div class="buttons">
+            <button class="button is-primary" (click)="saveUser()" type="submit" >
+              Gravar
+            </button>
+
+            <button class="button is-light" (click)="cancel()" type="reset" >
+              Cancelar
+            </button>
+          </div>
+      </div>
+  </form>
+</div>

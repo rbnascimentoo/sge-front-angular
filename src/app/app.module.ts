@@ -1,4 +1,4 @@
-import { UserAddComponent } from './components/users/user-add/user-add.component';
+import { UserAddComponent } from './components/administration/users/user-add/user-add.component';
 import { AuthInteceptor } from './services/auth/auth.interceptor';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -13,7 +13,10 @@ import { HomeComponent } from './components/home/home.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedService } from './services/shared.service';
-import { UserListComponent } from './components/users/user-list/user-list.component';
+import { UserListComponent } from './components/administration/users/user-list/user-list.component';
+import { ClientAddComponent } from './components/manager/clients/client-add/client-add.component';
+import { ClientListComponent } from './components/manager/clients/client-list/client-list.component';
+import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { UserListComponent } from './components/users/user-list/user-list.compon
     HomeComponent,
     MenuComponent,
     UserAddComponent,
-    UserListComponent
+    UserListComponent,
+    ClientAddComponent,
+    ClientListComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
