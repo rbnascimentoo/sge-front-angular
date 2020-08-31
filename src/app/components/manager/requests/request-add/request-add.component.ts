@@ -2,6 +2,8 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { RequestService } from 'src/app/services/request/request.service';
 import { Request } from 'src/app/models/Request';
+import { ProductService } from 'src/app/services/product/product.service';
+import { Product } from 'src/app/models/Product';
 
 @Component({
   selector: 'app-request-add',
@@ -12,6 +14,7 @@ export class RequestAddComponent implements OnInit {
 
   request: Request;
   idRequest: string = null;
+  itemsList: Array<Product>;
 
   constructor(private router: Router, private requestService: RequestService) { }
 
@@ -56,5 +59,9 @@ export class RequestAddComponent implements OnInit {
   cancel() {
     this.createNewRequest();
     this.router.navigate(['request']);
+  }
+
+  deleteItem() {
+
   }
 }
