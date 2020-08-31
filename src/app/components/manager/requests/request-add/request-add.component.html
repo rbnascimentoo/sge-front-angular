@@ -1,0 +1,92 @@
+<div>
+  <form method="POST">
+      <fieldset name="request">
+        <legend><b> Pedido </b></legend>
+        <div class="field">
+          <label class="label">Descrição</label>
+          <div class="control">
+            <input id="description" class="input" type="text" placeholder="Nome" required [(ngModel)]="request.description" name="description">
+          </div>
+
+        </div>
+
+        <div class="field">
+          <label class="label">Data da Entrega</label>
+          <div class="control">
+            <input id="deliveryDate" class="input" type="text" placeholder="Data de Entrega" required [(ngModel)]="request.deliveryDate" name="deliveryDate">
+          </div>
+        </div>
+
+
+        <div class="field is-grouped">
+
+            <div class="control">
+              <div class="select is-primary">
+                <select>
+                  <option>Select dropdown</option>
+                  <option>With options</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="control">
+              <input id="quatity" class="input" type="number" required name="quatity">
+            </div>
+
+            <div class="buttons">
+              <button class="button is-primary" (click)="add()" type="submit" >
+                Adicionar
+              </button>
+            </div>
+
+        </div>
+
+        <div class="field" style="border: solid;">
+
+         <table class="table is-fullwidth">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Produto</th>
+                  <th>Quantidade</th>
+                  <th style="width: 20%;">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of itemsList[0]; let i = index" >
+                  <td>{{ i+1 }}</td>
+                  <td></td>
+                  <td></td>
+                  <td style="width: 20%;">
+
+                    <button class="button is-link is-outlined is-danger" (click)="deleteItem()" >
+                        Deletar
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+
+        </div>
+
+        <div class="field">
+          <label class="label">Valor Total</label>
+          <div class="control">
+            <input id="valueTotal" readonly class="input" type="text" placeholder="0" required [(ngModel)]="request.valueTotal" name="valueTotal">
+          </div>
+        </div>
+      </fieldset>
+      <br>
+      <div class="field is-grouped is-grouped-right">
+          <div class="buttons">
+            <button class="button is-primary" (click)="save()" type="submit" >
+              Gravar
+            </button>
+
+            <button class="button is-light" (click)="cancel()" type="reset" >
+              Cancelar
+            </button>
+          </div>
+      </div>
+  </form>
+</div>

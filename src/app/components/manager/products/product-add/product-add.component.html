@@ -1,19 +1,18 @@
 <div>
   <form method="POST">
-      <fieldset name="cliente">
-        <legend><b> CLiente </b></legend>
+      <fieldset name="product">
+        <legend><b> Produto </b></legend>
         <div class="field">
           <label class="label">Nome</label>
           <div class="control">
-            <input id="name" class="input" type="text" placeholder="Nome" required [(ngModel)]="client.name" name="name">
+            <input id="name" class="input" type="text" placeholder="Nome" required [(ngModel)]="product.name" name="name">
           </div>
 
         </div>
         <div class="field">
-          <label class="label">Telefone</label>
+          <label class="label">Valor</label>
           <div class="control">
-            <input id="phone" class="input" type="text" placeholder="Telefone" required [(ngModel)]="client.phone" name="phone">
-
+            <input id="value" class="input" type="text" placeholder="Valor" required [(ngModel)]="product.value" name="value">
           </div>
         </div>
       </fieldset>

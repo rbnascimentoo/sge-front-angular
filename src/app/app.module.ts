@@ -17,6 +17,10 @@ import { UserListComponent } from './components/administration/users/user-list/u
 import { ClientAddComponent } from './components/manager/clients/client-add/client-add.component';
 import { ClientListComponent } from './components/manager/clients/client-list/client-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard/dashboard.component';
+import { RequestAddComponent } from './components/manager/requests/request-add/request-add.component';
+import { RequestListComponent } from './components/manager/requests/request-list/request-list.component';
+import { ProductListComponent } from './components/manager/products/product-list/product-list.component';
+import { ProductAddComponent } from './components/manager/products/product-add/product-add.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { DashboardComponent } from './components/dashboard/dashboard/dashboard.c
     UserListComponent,
     ClientAddComponent,
     ClientListComponent,
-    DashboardComponent
+    DashboardComponent,
+    RequestAddComponent,
+    RequestListComponent,
+    ProductListComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
