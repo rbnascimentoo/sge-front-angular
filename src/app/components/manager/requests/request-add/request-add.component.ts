@@ -61,6 +61,10 @@ export class RequestAddComponent implements OnInit {
     this.router.navigate(['request']);
   }
 
+  add(){
+
+  }
+
   deleteItem() {
 
   }
